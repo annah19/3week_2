@@ -30,7 +30,8 @@ urlpatterns = [
     path('wishlist/', include('wishlist.urls')),
     path('aboutus/', include('aboutus.urls')),
     path('confirm/', include('confirm.urls')),
-    path('info/', include('info.urls'))
+    path('info/', include('info.urls')),
+    path('faq/', include('faq.urls'))
 
 
 ]
