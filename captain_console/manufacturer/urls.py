@@ -4,5 +4,5 @@ from . import views
 # From candyqueen video - testing
 urlpatterns = [
     # http://localhost:8000/manufacturers
-    path('', views.index, name="index"),
+    path('', views.index, name="manufacturer-index"),
 ]
