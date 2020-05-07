@@ -1,7 +1,5 @@
 
-.text-yellow {
-    color: #F2BB05;
-}
+.text-yellow { color: #F2BB05!important; }
 
 body  {
     font-family: "Open Sans";
@@ -13,6 +11,20 @@ body  {
 
 #top-header a {
     color: #FFFFFF;
+}
+
+#header-search input {
+    border: none;
+    border-radius: 50px 0 0 50px;
+    min-height: 50px!important;
+}
+
+#header-search .btn {
+    background-color: #FFFFFF!important;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    color: #F2BB05;
+    min-height: 50px!important;
 }
 
 #main-menu {
