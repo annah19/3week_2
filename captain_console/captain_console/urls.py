@@ -20,18 +20,10 @@ urlpatterns = [
     path('',include('CaptainConsole.urls')),
     path('admin/', admin.site.urls),
     path('CaptainConsole/', include('CaptainConsole.urls')),
-
     path('products/', include('products.urls')),
     path('user/', include('user.urls')),
-
-
     path('checkout/', include('checkout.urls')),
-
-
-
     path('aboutus/', include('aboutus.urls')),
-
-
     path('faq/', include('faq.urls'))
 
 
