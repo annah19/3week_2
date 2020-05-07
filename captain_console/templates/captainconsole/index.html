@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+    <!-- Testing - not supposed to be here, check views.py also-->
     <h2>Welcome to the CC app</h2>
-
+    {% for cc in captainconsole %}
+        {% if cc.price > 40 %}
+            <p>Expensive</p>
+        {% else %}
+            <p>Not expensive</p>
+        {% endif %}
+        <h4>{{ cc.name }}</h4>
+        <p>{{ cc.price }}$</p>
+    {% endfor %}
 {% endblock %}
 

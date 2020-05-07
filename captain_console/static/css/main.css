@@ -3,6 +3,10 @@
     color: #F2BB05;
 }
 
+body  {
+    font-family: "Open Sans";
+}
+
 #top-header {
     background-color: #124E78;
 }
