@@ -4,5 +4,5 @@ from . import views
 # From candyqueen video - testing
 urlpatterns = [
     # http://localhost:8000/checkout
-    path('', views.index, name="checkout-index"),
+    path('', views.checkout, name="checkout"),
 ]
