@@ -260,3 +260,6 @@ fabric.properties
 venv/
 env/
 virtualenv/
+
+# The entire .idea folder
+.idea

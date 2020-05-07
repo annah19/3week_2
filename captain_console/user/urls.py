@@ -4,5 +4,6 @@ from . import views
 # From candyqueen video - testing
 urlpatterns = [
     # http://localhost:8000/user
-    path('', views.index, name="user-index"),
+    path('', views.profile, name="profile"),
+    path('wishlist', views.wishlist, name="wishlist")
 ]
