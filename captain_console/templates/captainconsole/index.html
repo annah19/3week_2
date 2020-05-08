@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <a href="#" class="jumbotron-link display-4">New arrivals</a>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent. Picture is missing</p>
+        </div>
+    </div>
     <div class="text-center">
         <a href="#" class="btn btn-primary btn-yellow btn-lg" role="button">Computers</a>
     </div>
@@ -13,8 +19,10 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <h4>{{ computer.name }}</h4>
-                            <p>{{ computer.price }}$</p>
-                            <a href="#" class="card-link">Add to cart</a>
+                            <div class="card-bottom">
+                                <p>{{ computer.price }}$</p>
+                                <a href="#" class="card-link">Add to cart</a>
+                            </div>
                         </div>
                     </div>
             </div>
@@ -31,8 +39,11 @@
                     <div class="card">
                         <div class="card-body text-center">
                             <h4>{{ game.name }}</h4>
-                            <p>{{ game.price }}$</p>
-                            <a href="#" class="card-link">Add to cart</a>
+                            <div class="card-bottom">
+                                <p>{{ game.price }}$</p>
+                                <a href="#" class="card-link">Add to cart</a>
+                            </div>
+
                         </div>
                     </div>
             </div>

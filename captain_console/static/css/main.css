@@ -59,8 +59,12 @@ body  {
 .card-link {
     color: black;
     text-decoration: underline;
+
 }
 
+.jumbotron-link {
+    color: black;
+}
 
 
 .main-footer {
