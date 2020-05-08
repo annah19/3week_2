@@ -1,6 +1,20 @@
 
 .text-yellow { color: #F2BB05!important; }
 
+.btn-yellow {
+    background-color: #F2BB05;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: white;
+    box-shadow: none!important;
+}
+
+.btn-yellow:focus,
+.btn-yellow:hover {
+    background-color: #F2BB05!important;
+}
+
 body  {
     font-family: "Open Sans";
 }
@@ -42,6 +56,13 @@ body  {
     font-size: 0.7rem;
 }
 
+.card-link {
+    color: black;
+    text-decoration: underline;
+}
+
+
+
 .main-footer {
     background-color: #051B44;
 }
@@ -49,3 +70,5 @@ body  {
 .main-footer p {
     color: #FFFFFF;
 }
+
+

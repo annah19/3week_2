@@ -1,16 +1,58 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <!-- Testing - not supposed to be here, check views.py also-->
-    <h2>Welcome to the CC app</h2>
-    {% for cc in captainconsole %}
+    <div class="text-center">
+        <a href="#" class="btn btn-primary btn-yellow btn-lg" role="button">Computers</a>
+    </div>
+
+    <!--  check views.py also-->
+    <div class="row my-4">
+        {% for computer in computers %}
+            <div class="col-md-3">
+                <img src="/static/images/products/{{ computer.id }}.jpg" class="card-img-top" alt="{{ computer.name }}">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>{{ computer.name }}</h4>
+                            <p>{{ computer.price }}$</p>
+                            <a href="#" class="card-link">Add to cart</a>
+                        </div>
+                    </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="text-center">
+        <a href="#" class="btn btn-primary btn-yellow btn-lg" role="button">Games</a>
+    </div>
+
+    <div class="row my-4">
+        {% for game in games %}
+            <div class="col-md-3">
+                <img src="/static/images/products/{{ game.id }}.jpg" class="card-img-top" alt="{{ game.name }}">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4>{{ game.name }}</h4>
+                            <p>{{ game.price }}$</p>
+                            <a href="#" class="card-link">Add to cart</a>
+                        </div>
+                    </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+<!--
+<div class="row">
+    <div class="col-md-3">
+            <h4>{{ cc.name }}</h4>
+            <p>{{ cc.price }}$</p>
+    </div>
+</div>
+
         {% if cc.price > 40 %}
             <p>Expensive</p>
         {% else %}
             <p>Not expensive</p>
         {% endif %}
-        <h4>{{ cc.name }}</h4>
-        <p>{{ cc.price }}$</p>
-    {% endfor %}
-{% endblock %}
 
+<p>{{ cc.price }}$</p> -->
