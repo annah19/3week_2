@@ -8,16 +8,7 @@
     <!--  check views.py also-->
     <div class="row my-4">
         {% for computer in computers %}
-            <div class="col-md-3">
-                <img src="/static/images/products/{{ computer.id }}.jpg" class="card-img-top" alt="{{ computer.name }}">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h4>{{ computer.name }}</h4>
-                            <p>{{ computer.price }}$</p>
-                            <a href="#" class="card-link">Add to cart</a>
-                        </div>
-                    </div>
-            </div>
+            {% include "products/product_front_page.html" with product=computer %}
         {% endfor %}
     </div>
     <div class="text-center">
@@ -26,33 +17,7 @@
 
     <div class="row my-4">
         {% for game in games %}
-            <div class="col-md-3">
-                <img src="/static/images/products/{{ game.id }}.jpg" class="card-img-top" alt="{{ game.name }}">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <h4>{{ game.name }}</h4>
-                            <p>{{ game.price }}$</p>
-                            <a href="#" class="card-link">Add to cart</a>
-                        </div>
-                    </div>
-            </div>
+            {% include "products/product_front_page.html" with product=game %}
         {% endfor %}
     </div>
 {% endblock %}
-
-
-<!--
-<div class="row">
-    <div class="col-md-3">
-            <h4>{{ cc.name }}</h4>
-            <p>{{ cc.price }}$</p>
-    </div>
-</div>
-
-        {% if cc.price > 40 %}
-            <p>Expensive</p>
-        {% else %}
-            <p>Not expensive</p>
-        {% endif %}
-
-<p>{{ cc.price }}$</p> -->

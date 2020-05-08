@@ -1,0 +1,11 @@
+<div class="col-md-3">
+    <!-- TODO replace this id thing with something like a link to the cover image -->
+    <a href="/products/{{ product.id }}"><img src="/static/images/products/{{ product.id }}.jpg" class="card-img-top" alt="{{ product.name }}"><a/>
+    <div class="card">
+        <div class="card-body text-center">
+            <h4>{{ product.name }}</h4>
+            <p>{{ product.price }}$</p>
+            <a href="#" class="card-link">Add to cart</a>
+        </div>
+    </div>
+</div>
