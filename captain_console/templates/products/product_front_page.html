@@ -5,7 +5,8 @@
         <div class="card-body text-center">
             <h4>{{ product.name }}</h4>
             <p>{{ product.price }}$</p>
-            <a href="#" class="card-link">Add to cart</a>
+            <button id="{{ product.id }}" type="button" class="btn btn-default btn-cart">Add to Cart</button>
+            <!-- <a href="{{ product.id }}" class="card-link btn-cart">Add to cart</a> -->
         </div>
     </div>
 </div>

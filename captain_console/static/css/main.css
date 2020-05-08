@@ -75,4 +75,6 @@ body  {
     color: #FFFFFF;
 }
 
-
+.cart-image {
+    max-width: 128px;
+}

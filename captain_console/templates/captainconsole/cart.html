@@ -2,6 +2,17 @@
 {% load static %}
 {% block content %}
     <h2>Your cart!</h2>
+    {% if not cart  %}
+        <h1>Your cart is empty!</h1>
+    {% else %}
+        {% for item in cart %}
+            <img src="{{ item.cover_art }}" class="cart-image" />
+            <h1>Name: {{ item.name }}</h1>
+            <p>Count: {{ item.amount }}</p>
+            <p>Price: {{ item.price }}</p>
+            <h2>Total: {{ item.total }}</h2>
+        {% endfor %}
+    {% endif %}
 
 {% endblock %}
 
