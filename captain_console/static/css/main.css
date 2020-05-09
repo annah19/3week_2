@@ -15,6 +15,8 @@
     background-color: #F2BB05!important;
 }
 
+.no-wrap { white-space: nowrap;}
+
 body  {
     font-family: "Open Sans";
 }
@@ -41,40 +43,81 @@ body  {
     min-height: 50px!important;
 }
 
-#main-menu {
-    background-color: #051B44;
+.jumbotron {
+    color: white;
+    background-image: url("/static/images/hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 33vh;
+    position: relative;
 }
 
-#main-menu .navbar-nav {
-    justify-content: space-between;
-    width: 100%;
+.jumbotron-darken {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    z-index: -1;
 }
 
-#main-menu a {
-    color: #FFFFFF;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.7rem;
-}
+/**************
+* MAIN MENU
+***************/
 
-.card-link {
-    color: black;
-    text-decoration: underline;
+    #main-menu {
+        background-color: #051B44;
+    }
 
-}
+    #main-menu .navbar-nav {
+        justify-content: space-between;
+        width: 100%;
+    }
 
-.jumbotron-link {
-    color: black;
-}
+    #main-menu a {
+        color: #FFFFFF;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.7rem;
+    }
+
+    #main-menu .navbar-toggler-icon {
+        color: white;
+        background-image: none;
+
+    }
 
 
-.main-footer {
-    background-color: #051B44;
-}
+/**************
+* MISC
+***************/
 
-.main-footer p {
-    color: #FFFFFF;
-}
+    .card-link {
+        color: black;
+        text-decoration: underline;
+    }
 
-.cart-image {
-    max-width: 128px;
-}
+    .jumbotron-link {
+        color: black;
+    }
+
+/**************
+* CART
+***************/
+
+    .cart-image {
+        max-width: 128px;
+    }
+
+/**************
+* FOOTER
+***************/
+
+    .main-footer {
+        background-color: #051B44;
+    }
+
+    .main-footer p {
+        color: #FFFFFF;
+    }

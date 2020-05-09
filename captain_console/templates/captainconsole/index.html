@@ -2,12 +2,16 @@
 {% load static %}
 {% block content %}
     <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron-darken"></div>
         <div class="container">
-            <a href="#" class="jumbotron-link display-4">New arrivals</a>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent. Picture is missing</p>
+            <h1 class="display-4">Promos</h1>
+            <p>Here can we put promos, or not..</p>
+            <a href="#" class="btn btn-primary btn-yellow btn-lg" role="button">Check it out!</a>
+
         </div>
     </div>
-    <div class="text-center">
+
+    <div class="text-center py-5">
         <a href="#" class="btn btn-primary btn-yellow btn-lg" role="button">Computers</a>
     </div>
 
@@ -17,7 +21,7 @@
             {% include "products/product_front_page.html" with product=computer %}
         {% endfor %}
     </div>
-    <div class="text-center">
+    <div class="text-center py-5">
         <a href="#" class="btn btn-primary btn-yellow btn-lg" role="button">Games</a>
     </div>
 

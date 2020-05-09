@@ -3,16 +3,16 @@ from django.shortcuts import render
 
 # Testing -check informational.html also
 computers = [
-    {'id': 1, 'name': 'Gameboy', 'price': 39.99},
-    {'id': 1,'name': 'Playstation1', 'price': 49.99},
-    {'id': 1,'name': 'Sega', 'price': 49.99},
-    {'id': 1,'name': 'Nes', 'price': 49.99},
+    {'id': 1, 'name': 'Gameboy', 'price': 39.99,'description':'This is a great product'},
+    {'id': 1,'name': 'Playstation1', 'price': 49.99,'description':'This is a brilliant product'},
+    {'id': 1,'name': 'Sega', 'price': 49.99,'description':'This is a great product'},
+    {'id': 1,'name': 'Nes', 'price': 49.99,'description':'This is a brilliant product'},
 ]
 games = [
-    {'id': 1,'name': 'Mario Kart', 'price': 39.99},
-    {'id': 1,'name': 'Donkey Kong', 'price': 49.99},
-    {'id': 1,'name': 'Pacman', 'price': 49.99},
-    {'id': 1,'name': 'Sonic', 'price': 49.99},
+    {'id': 1,'name': 'Mario Kart', 'price': 39.99,'description':'This is a fantastic game'},
+    {'id': 1,'name': 'Donkey Kong', 'price': 49.99,'description':'This is a great game'},
+    {'id': 1,'name': 'Pacman', 'price': 49.99,'description':'This is a good game game'},
+    {'id': 1,'name': 'Sonic', 'price': 49.99,'description':'This is a great product'},
 ]
 
 
