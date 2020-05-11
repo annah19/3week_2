@@ -4,23 +4,13 @@ from django.shortcuts import render, redirect
 
 # Testing -check informational.html also
 from CaptainConsole.forms.product_form import ProductCreationForm, ManufacturerCreationForm, CategoryCreationForm
-from products.models import ProductImage
-
-computers = [
-    {'id': 1, 'name': 'Gameboy', 'price': 39.99,'description':'This is a great product'},
-    {'id': 1,'name': 'Playstation1', 'price': 49.99,'description':'This is a brilliant product'},
-    {'id': 1,'name': 'Sega', 'price': 49.99,'description':'This is a great product'},
-    {'id': 1,'name': 'Nes', 'price': 49.99,'description':'This is a brilliant product'},
-]
-games = [
-    {'id': 1,'name': 'Mario Kart', 'price': 39.99,'description':'This is a fantastic game'},
-    {'id': 1,'name': 'Donkey Kong', 'price': 49.99,'description':'This is a great game'},
-    {'id': 1,'name': 'Pacman', 'price': 49.99,'description':'This is a good game game'},
-    {'id': 1,'name': 'Sonic', 'price': 49.99,'description':'This is a great product'},
-]
+from products.models import ProductImage, Product
 
 
 def index(request):
+    computers = Product.objects.filter(category__name__icontains="console")[:4]
+    games = Product.objects.filter(category__name__icontains="game")[:4]
+
     return render(request, 'captainconsole/index.html', context={'computers': computers,'games':games} )
 
 
@@ -33,29 +23,28 @@ def about(request):
 
 
 def cart(request):
-    if "cart" in request.session:
-        # TODO make this return cover art, name, amount, price
-        # Amount is in request.session["cart"][str(product_id)]
+    if "cart" not in request.session:
+        return render(request, 'captainconsole/cart.html', context={"cart": []})
 
-        amount = request.session["cart"]["1"]
-        temp_data = [
-            {
-                "cover_art": "https://upload.wikimedia.org/wikipedia/sco/6/6a/Super_Mario_64_box_cover.jpg",
-                "name": "Mario 64",
-                "amount": amount,
-                "price": 4.99,
-                "total": amount * 4.99
-            },
-            {
-                "cover_art": "https://upload.wikimedia.org/wikipedia/en/c/c1/Kirby64_box.jpg",
-                "name": "Kirby 64",
-                "amount": 1,
-                "price": 5.99,
-                "total": 1 * 5.99
-            }
-        ]
-        return render(request, 'captainconsole/cart.html', context={"cart": temp_data})
-    return render(request, 'captainconsole/cart.html', context={"cart": []})
+    cart_items = request.session["cart"]
+    cart_json = []
+    cart_subtotal = 0
+    for product_id in cart_items:
+        product_amount = cart_items[product_id]
+        product = Product.objects.get(pk=product_id)
+        product_price = product.price
+        product_total_price = product_price * product_amount
+        product_dict = {
+            "cover_art": product.cover_image,
+            "name": product.name,
+            "amount": product_amount,
+            "price": product_price,
+            "total": product_total_price
+        }
+        cart_json.append(product_dict)
+        cart_subtotal += product_total_price
+
+    return render(request, 'captainconsole/cart.html', context={"cart": cart_json, "subtotal": cart_subtotal})
 
 
 def add_to_cart(request):
@@ -73,7 +62,7 @@ def add_to_cart(request):
         return JsonResponse({"data": request.session["cart"]})
 
 
-def remove_from_cart(request, product_id):
+def remove_from_cart(request):
     if request.method == "GET":
         str_id = str(request.GET["product_id"])
         amount = int(request.GET["amount"])

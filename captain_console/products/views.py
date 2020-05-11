@@ -5,13 +5,6 @@ lorem = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam inte
 <br />
 Cras eget ultricies ipsum. Curabitur viverra purus in finibus pellentesque. Mauris iaculis velit non venenatis tempor. Nunc dignissim lorem rutrum diam gravida, ac fermentum felis faucibus. Sed imperdiet nec nisl in malesuada. Praesent eget fringilla sem. Praesent consectetur malesuada sapien, et aliquam augue aliquam ac. Proin et libero facilisis nibh fermentum rutrum at a magna. Sed nunc dui, sodales ultricies nibh eu, dictum vulputate sapien. Maecenas feugiat id dolor sed tristique. Mauris semper lacus et sapien sodales, placerat iaculis nibh gravida."""
 
-games = [
-    {'id': 1, 'name': 'Mario Kart', 'price': 39.99, "description": lorem,'manufacturer':1},
-    {'id': 1, 'name': 'Donkey Kong', 'price': 49.99, "description": lorem,'manufacturer':1},
-    {'id': 1, 'name': 'Pacman', 'price': 49.99, "description": lorem,'manufacturer':2},
-    {'id': 1, 'name': 'Sonic', 'price': 49.99, "description": lorem,'manufacturer':1},
-]
-
 manufacturers = [
     {'id': 0, 'name': 'All'},
     {'id': 1, 'name': 'Nintendo'},
@@ -22,7 +15,6 @@ categories = [
     {'id': 1, 'name': 'Games'},
     {'id': 2, 'name': 'Consoles'}
 ]
-
 
 def index(request):
 
@@ -43,6 +35,5 @@ def index(request):
 
 
 def get_product_by_id(request, id):
-    # context = {"product": get_object_or_404(Product, pk=id)}
-    context = {"product": games[id]}
+    context = {"product": get_object_or_404(Product, pk=id)}
     return render(request, "products/product_details.html", context)
