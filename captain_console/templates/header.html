@@ -47,7 +47,7 @@
         </ul>
     <!-- Here is the user profile picture -->
         {% if user.is_authenticated %}
-            <img src="{{ user.profile_image }}" class="profile_image" />
+            <img src="{{ user.profile.profile_image }}" class="profile_image" />
         {% endif %}
     </div>
 </nav>
