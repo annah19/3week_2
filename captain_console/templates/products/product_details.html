@@ -3,7 +3,7 @@
     <!-- TODO proper cover image -->
     <div class="row">
         <div class="col-md-6">
-            <a href="/products/{{ product.id }}"><img src="/static/images/products/{{ product.id }}.jpg" class="card-img-top" alt="{{ product.name }}" /></a>
+            <a href="/products/{{ product.id }}"><img src="{{ product.cover_image }}" class="card-img-top" alt="{{ product.name }}" /></a>
         </div>
         <div class="col-md-6 d-flex flex-column">
             <h4 class="product-title">{{ product.name }}</h4>
