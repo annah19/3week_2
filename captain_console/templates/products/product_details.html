@@ -1,12 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
     <!-- TODO proper cover image -->
-    <a href="/products/{{ product.id }}"><img src="/static/images/products/{{ product.id }}.jpg" class="card-img-top" alt="{{ product.name }}" /><a/>
-    <h4>{{ product.name }}</h4>
-    <p>{{ product.price }}$</p>
-    <p>{{ product.description }}</p>
-    <a href="#" class="card-link">Add to cart</a>
-    {% for product_image in product.productimage_set.all %}
-        <img src="{{ product_image.image }}" class="product-img" />
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/products/{{ product.id }}"><img src="/static/images/products/{{ product.id }}.jpg" class="card-img-top" alt="{{ product.name }}" /></a>
+        </div>
+        <div class="col-md-6 d-flex flex-column">
+            <h4 class="product-title">{{ product.name }}</h4>
+            <div class="mt-auto">
+                <p class="product-price">{{ product.price }}$</p>
+                <!-- TODO maybe add wishlist.. -->
+                <button id="{{ product.id }}" type="button" class="btn btn-default btn-theme btn-cart">Add to cart</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="py-5">
+        <h4>Description</h4>
+        <p>{{ product.description }}</p>
+        {% for product_image in product.productimage_set.all %}
+            <img src="{{ product_image.image }}" class="product-img" />
     {% endfor %}
+    </div>
+
 {% endblock %}

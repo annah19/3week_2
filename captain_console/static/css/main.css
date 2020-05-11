@@ -1,6 +1,7 @@
 
 .text-yellow { color: #F2BB05!important; }
 
+
 .btn-theme {
     background-color: #F2BB05;
     border: none;
@@ -10,8 +11,8 @@
     box-shadow: none!important;
 }
 
-.btn-yellow:focus,
-.btn-yellow:hover {
+.btn-theme:focus,
+.btn-theme:hover {
     background-color: #F2BB05!important;
 }
 
@@ -21,47 +22,53 @@ body  {
     font-family: "Open Sans";
 }
 
-#top-header {
-    background-color: #124E78;
-}
 
-#top-header a {
-    color: #FFFFFF;
-}
 
-#header-search input {
-    border: none;
-    border-radius: 50px 0 0 50px;
-    min-height: 50px!important;
-}
+/**************
+* HEADER
+***************/
 
-#header-search .btn {
-    background-color: #FFFFFF!important;
-    border: none;
-    border-radius: 0 50px 50px 0;
-    color: #F2BB05;
-    min-height: 50px!important;
-}
+    #top-header {
+        background-color: #124E78;
+    }
 
-.jumbotron {
-    color: white;
-    background-image: url("/static/images/hero.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 33vh;
-    position: relative;
-}
+    #top-header a {
+        color: #FFFFFF;
+    }
 
-.jumbotron-darken {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.3);
-    z-index: -1;
-}
+    #header-search input {
+        border: none;
+        border-radius: 50px 0 0 50px;
+        min-height: 50px!important;
+    }
+
+    #header-search .btn {
+        background-color: #FFFFFF!important;
+        border: none;
+        border-radius: 0 50px 50px 0;
+        color: #F2BB05;
+        min-height: 50px!important;
+    }
+
+    .jumbotron {
+        color: white;
+        background-image: url("/static/images/hero.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 33vh;
+        position: relative;
+    }
+
+    .jumbotron-darken {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.3);
+        z-index: -1;
+    }
 
 /**************
 * MAIN MENU
@@ -90,8 +97,23 @@ body  {
 
 
 /**************
+* PRODUCTS
+***************/
+
+    .product-title {
+        font-family: 'Press Start 2P', cursive;
+
+    }
+
+    .product-price {
+        color: green;
+        font-size: 1.2rem;
+    }
+
+/**************
 * MISC
 ***************/
+
 
     .card-link {
         color: black;
