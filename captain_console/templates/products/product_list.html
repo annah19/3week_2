@@ -1,41 +1,46 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="row">
-        <div class="col-md-4">
-            <form method="GET">
-                {% for manufacturer in manufacturers %}
-                    <div class="custom-control custom-radio mb-2">
-                        <!-- TODO no function in the radio-->
-                        <label>
-                            <input type="radio" {% if selected_manufacturer == manufacturer.name %}checked{% endif %} class="custom-control-input" name="manufacturer" value="{{ manufacturer.name }}" onchange="this.form.submit()" id="customCheck1">
-                            <div class="custom-control-label"></div>
-                            {{ manufacturer.name }}
-                        </label>
-                    </div>
-                    <div class="pl-4">
-                        {% for category in categories %}
-                            <div class="custom-control custom-radio mb-2">
-                                <label>
-                                    <input type="radio" class="custom-control-input" {% if selected_manufacturer != manufacturer.name %}disabled{% endif %} {% if selected_manufacturer == manufacturer.name and selected_category == category.name %}checked{% endif %} name="category" value="{{ category.name }}" onchange="this.form.submit()" id="customCheck1">
-                                    <div class="custom-control-label"></div>
-                                    {{ category.name }}
-                                </label>
-                            </div>
+    <form method="GET">
+        <div class="row">
+            <div class="col-md-4">
+                    {% for manufacturer in manufacturers %}
+                        <div class="custom-control custom-radio mb-2">
+                            <label>
+                                <input type="radio" {% if selected_manufacturer == manufacturer.name %}checked{% endif %} class="custom-control-input" name="manufacturer" value="{{ manufacturer.name }}" onchange="this.form.submit()" id="customCheck1">
+                                <div class="custom-control-label"></div>
+                                {{ manufacturer.name }}
+                            </label>
+                        </div>
+                        <div class="pl-4">
+                            {% for category in categories %}
+                                <div class="custom-control custom-radio mb-2">
+                                    <label>
+                                        <input type="radio" class="custom-control-input" {% if selected_manufacturer != manufacturer.name %}disabled{% endif %} {% if selected_manufacturer == manufacturer.name and selected_category == category.name %}checked{% endif %} name="category" value="{{ category.name }}" onchange="this.form.submit()" id="customCheck1">
+                                        <div class="custom-control-label"></div>
+                                        {{ category.name }}
+                                    </label>
+                                </div>
 
-                        {% endfor %}
-                    </div>
-                {% endfor %}
-            </form>
-        </div>
-        <div class="col-md-8">
-            <div id="products-content" class="row">
-                {% for product in products %}
-                    {% include "products/product_front_page.html" with product=product %}
-                {% endfor %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
             </div>
+            <div class="col-md-8">
+                <select class="mb-5" onchange="this.form.submit()" name="order_by">
+                    <option {% if selected_order_by == 'name' %}selected{% endif %} value="name">Name</option>
+                    <option {% if selected_order_by == 'price' %}selected{% endif %} value="price">Price</option>
+                </select>
+                <div id="products-content" class="row">
+                    {% for product in products %}
+                        <div class="col-md-4 mb-5">
+                            {% include "products/product_front_page.html" with product=product %}
+                        </div>
+                    {% endfor %}
+                </div>
 
+            </div>
         </div>
+    </form>
 
-    </div>
 
 {% endblock %}
