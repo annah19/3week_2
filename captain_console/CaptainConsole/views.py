@@ -1,7 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Testing -check informational.html also
+from CaptainConsole.forms.product_form import ProductCreationForm, ManufacturerCreationForm, CategoryCreationForm
+from products.models import ProductImage
+
 computers = [
     {'id': 1, 'name': 'Gameboy', 'price': 39.99,'description':'This is a great product'},
     {'id': 1,'name': 'Playstation1', 'price': 49.99,'description':'This is a brilliant product'},
@@ -80,3 +84,40 @@ def remove_from_cart(request, product_id):
                     del request.session["cart"][str_id]
                 request.session.modified = True
         return JsonResponse({"data": request.session["cart"]})
+
+
+@login_required
+def create_item(request):
+    if request.method == "POST":
+        form = ProductCreationForm(data=request.POST)
+        if form.is_valid():
+            product = form.save()
+            product_image = ProductImage(image=request.POST["image"], product=product)
+            product_image.save()
+            return redirect("create_item")
+    else:
+        form = ProductCreationForm()
+    return render(request, "products/create_product.html", {"form": form})
+
+
+@login_required
+def create_manufacturer(request):
+    if request.method == "POST":
+        form = ManufacturerCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("create_manufacturer")
+    else:
+        form = ManufacturerCreationForm()
+    return render(request, "products/create_manufacturer.html", {"form": form})
+
+
+def create_category(request):
+    if request.method == "POST":
+        form = CategoryCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("create_category")
+    else:
+        form = ManufacturerCreationForm()
+    return render(request, "products/create_category.html", {"form": form})

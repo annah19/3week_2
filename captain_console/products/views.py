@@ -13,9 +13,7 @@ games = [
 ]
 
 
-# TODO Rename to something like "product list" ?
 def index(request):
-    # TODO Rename file to anything but index
     return render(request, 'products/product_list.html')
 
 
