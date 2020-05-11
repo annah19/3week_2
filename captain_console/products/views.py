@@ -12,9 +12,18 @@ games = [
     {'id': 1, 'name': 'Sonic', 'price': 49.99, "description": lorem},
 ]
 
+manufacturers = [
+    {'id': 1, 'name': 'Nintendo'},
+    {'id': 1, 'name': 'Playstation'}
+]
+categories = [
+    {'id': 1, 'name': 'Games'},
+    {'id': 1, 'name': 'Consoles'}
+]
+
 
 def index(request):
-    return render(request, 'products/product_list.html')
+    return render(request, 'products/product_list.html',context={'categories':categories, 'manufacturers':manufacturers})
 
 
 def get_product_by_id(request, id):

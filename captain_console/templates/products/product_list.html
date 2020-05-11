@@ -1,4 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="row">
+        <div class="col-md-4">
+            {% for manufacturer in manufacturers %}
+                <div class="custom-control custom-checkbox mb-2">
+                    <!-- TODO no function in the checkbox-->
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">{{ manufacturer.name }}</label>
+                </div>
+                <div class="pl-4">
+                    {% for category in categories %}
+                        <div class="custom-control custom-checkbox mb-2">
+                        <!-- TODO no function in the checkbox-->
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1">{{ category.name }}</label>
+                        </div>
+
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="col-md-8">
+
+
+        </div>
+
+    </div>
 
 {% endblock %}
