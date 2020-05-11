@@ -7,7 +7,7 @@
                     <div class="custom-control custom-radio mb-2">
                         <!-- TODO no function in the radio-->
                         <label>
-                            <input type="radio" {% if selected_manufacturer == manufacturer.id %}checked{% endif %} class="custom-control-input" name="manufacturer" value="{{ manufacturer.id }}" onchange="this.form.submit()" id="customCheck1">
+                            <input type="radio" {% if selected_manufacturer == manufacturer.name %}checked{% endif %} class="custom-control-input" name="manufacturer" value="{{ manufacturer.name }}" onchange="this.form.submit()" id="customCheck1">
                             <div class="custom-control-label"></div>
                             {{ manufacturer.name }}
                         </label>
@@ -16,7 +16,7 @@
                         {% for category in categories %}
                             <div class="custom-control custom-radio mb-2">
                                 <label>
-                                    <input type="radio" class="custom-control-input" {% if selected_manufacturer != manufacturer.id %}disabled{% endif %} {% if selected_manufacturer == manufacturer.id and selected_category == category.id %}checked{% endif %} name="category" value="{{ category.id }}" onchange="this.form.submit()" id="customCheck1">
+                                    <input type="radio" class="custom-control-input" {% if selected_manufacturer != manufacturer.name %}disabled{% endif %} {% if selected_manufacturer == manufacturer.name and selected_category == category.name %}checked{% endif %} name="category" value="{{ category.name }}" onchange="this.form.submit()" id="customCheck1">
                                     <div class="custom-control-label"></div>
                                     {{ category.name }}
                                 </label>

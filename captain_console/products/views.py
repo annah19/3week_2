@@ -12,17 +12,21 @@ manufacturers = [
 ]
 
 categories = [
-    {'id': 1, 'name': 'Games'},
-    {'id': 2, 'name': 'Consoles'}
+    {'id': 1, 'name': 'Game'},
+    {'id': 2, 'name': 'Console'}
 ]
 
 def index(request):
 
-    selected_manufacturer = int(request.GET.get("manufacturer", 0))
-    selected_category = int(request.GET.get("category", 0))
+    selected_manufacturer = (request.GET.get("manufacturer", ""))
+    selected_category = (request.GET.get("category", ""))
 
-    # allir leikir sem nintendo selur
-    # Product.objects.filter(manufacturer__name__icontains="Nintendo", category__name__icontains="game")
+    games = {}
+    if(selected_manufacturer != ""):
+        # allir leikir sem nintendo selur
+        games = Product.objects.filter(manufacturer__name__icontains=selected_manufacturer)
+    if (selected_category != ""):
+        games = Product.objects.filter(category__name__icontains=selected_category)
 
 
     #products_search_results = render(request, 'products/products_search_results.html', context={"products":games}, content_type='application/xhtml+xml')
