@@ -13,10 +13,8 @@ games = [
 ]
 
 
-# TODO Rename to something like "product list" ?
 def index(request):
-    # TODO Rename file to anything but index
-    return render(request, 'products/index.html')
+    return render(request, 'products/product_list.html')
 
 
 def get_product_by_id(request, id):

@@ -2,7 +2,6 @@ from django.urls import path
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
 
-# From candyqueen video - testing
 urlpatterns = [
     # http://localhost:8000/user
     #path('', views.profile, name="profile"),
