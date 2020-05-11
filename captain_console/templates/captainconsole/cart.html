@@ -13,6 +13,7 @@
             <h2>Total: {{ item.total }}</h2>
         {% endfor %}
         <h1>Total Cart Price: {{ subtotal }}</h1>
+        <a href="{% url "checkout" %}" class="btn btn-primary btn-theme btn-lg" role="button">Go to checkout</a>
     {% endif %}
 
 {% endblock %}

@@ -21,10 +21,6 @@ function add_item_to_cart(product_id)
             console.error(error);
         }
     });
-    /*let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(product_id);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    console.log(cart);*/
 }
 
 function remove_item_from_cart(product_id, amount=1)
@@ -41,7 +37,4 @@ function remove_item_from_cart(product_id, amount=1)
             console.error(error);
         }
     });
-    /*let cart = JSON.parse(localStorage.getItem('cart'));
-    let products = cart.filter(x => x !== product_id);
-    localStorage.setItem('products', JSON.stringify(products));*/
 }

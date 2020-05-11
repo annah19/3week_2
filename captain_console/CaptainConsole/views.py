@@ -26,24 +26,7 @@ def cart(request):
     if "cart" not in request.session:
         return render(request, 'captainconsole/cart.html', context={"cart": []})
 
-    cart_items = request.session["cart"]
-    cart_json = []
-    cart_subtotal = 0
-    for product_id in cart_items:
-        product_amount = cart_items[product_id]
-        product = Product.objects.get(pk=product_id)
-        product_price = product.price
-        product_total_price = product_price * product_amount
-        product_dict = {
-            "cover_art": product.cover_image,
-            "name": product.name,
-            "amount": product_amount,
-            "price": product_price,
-            "total": product_total_price
-        }
-        cart_json.append(product_dict)
-        cart_subtotal += product_total_price
-    return render(request, 'captainconsole/cart.html', context={"cart": cart_json, "subtotal": cart_subtotal})
+    return render(request, 'captainconsole/cart.html', context=get_cart_items(request.session))
 
 
 def add_to_cart(request):
@@ -109,3 +92,26 @@ def create_category(request):
     else:
         form = ManufacturerCreationForm()
     return render(request, "products/create_category.html", {"form": form})
+
+
+def get_cart_items(session):
+    if "cart" not in session:
+        return {"cart": [], "subtotal": 0}
+    cart_items = session["cart"]
+    cart_response = []
+    cart_subtotal = 0
+    for product_id in cart_items:
+        product_amount = cart_items[product_id]
+        product = Product.objects.get(pk=product_id)
+        product_price = product.price
+        product_total_price = product_price * product_amount
+        product_dict = {
+            "cover_art": product.cover_image,
+            "name": product.name,
+            "amount": product_amount,
+            "price": product_price,
+            "total": product_total_price
+        }
+        cart_response.append(product_dict)
+        cart_subtotal += product_total_price
+    return {"cart": cart_response, "subtotal": cart_subtotal}

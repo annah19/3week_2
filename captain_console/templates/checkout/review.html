@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Review yo shizzle!</h2>
+    <p>{{ shipping }}</p>
+    <p>{{ card_info }}</p>
+    <p>{{ cart }}</p>
+    <a class="btn btn-theme" role="button" href="{% url "order_confirmation" %}">Confirm!</a>
+{% endblock %}
