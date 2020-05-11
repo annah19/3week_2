@@ -11,7 +11,7 @@ def index(request):
     computers = Product.objects.filter(category__name__icontains="console")[:4]
     games = Product.objects.filter(category__name__icontains="game")[:4]
 
-    return render(request, 'captainconsole/index.html', context={'computers': computers,'games':games} )
+    return render(request, 'captainconsole/index.html', context={'computers': computers, 'games': games})
 
 
 def faq(request):
@@ -43,7 +43,6 @@ def cart(request):
         }
         cart_json.append(product_dict)
         cart_subtotal += product_total_price
-
     return render(request, 'captainconsole/cart.html', context={"cart": cart_json, "subtotal": cart_subtotal})
 
 
