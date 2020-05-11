@@ -19,7 +19,9 @@
     <!--  check views.py also-->
     <div class="row my-4">
         {% for computer in computers %}
-            {% include "products/product_front_page.html" with product=computer %}
+            <div class="col-md-3">
+                {% include "products/product_front_page.html" with product=computer %}
+            </div>
         {% endfor %}
     </div>
     <!-- Todo link the button-->
@@ -29,7 +31,9 @@
 
     <div class="row my-4">
         {% for game in games %}
-            {% include "products/product_front_page.html" with product=game %}
+            <div class="col-md-3">
+                {% include "products/product_front_page.html" with product=game %}
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
