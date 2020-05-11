@@ -2,27 +2,37 @@
 {% block content %}
     <div class="row">
         <div class="col-md-4">
-            {% for manufacturer in manufacturers %}
-                <div class="custom-control custom-checkbox mb-2">
-                    <!-- TODO no function in the checkbox-->
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">{{ manufacturer.name }}</label>
-                </div>
-                <div class="pl-4">
-                    {% for category in categories %}
-                        <div class="custom-control custom-checkbox mb-2">
-                        <!-- TODO no function in the checkbox-->
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">{{ category.name }}</label>
-                        </div>
+            <form method="GET">
+                {% for manufacturer in manufacturers %}
+                    <div class="custom-control custom-radio mb-2">
+                        <!-- TODO no function in the radio-->
+                        <label>
+                            <input type="radio" {% if selected_manufacturer == manufacturer.id %}checked{% endif %} class="custom-control-input" name="manufacturer" value="{{ manufacturer.id }}" onchange="this.form.submit()" id="customCheck1">
+                            <div class="custom-control-label"></div>
+                            {{ manufacturer.name }}
+                        </label>
+                    </div>
+                    <div class="pl-4">
+                        {% for category in categories %}
+                            <div class="custom-control custom-radio mb-2">
+                                <label>
+                                    <input type="radio" class="custom-control-input" {% if selected_manufacturer != manufacturer.id %}disabled{% endif %} {% if selected_manufacturer == manufacturer.id and selected_category == category.id %}checked{% endif %} name="category" value="{{ category.id }}" onchange="this.form.submit()" id="customCheck1">
+                                    <div class="custom-control-label"></div>
+                                    {{ category.name }}
+                                </label>
+                            </div>
 
-                    {% endfor %}
-                </div>
-            {% endfor %}
-
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </form>
         </div>
         <div class="col-md-8">
-
+            <div id="products-content" class="row">
+                {% for product in products %}
+                    {% include "products/product_front_page.html" with product=product %}
+                {% endfor %}
+            </div>
 
         </div>
 
