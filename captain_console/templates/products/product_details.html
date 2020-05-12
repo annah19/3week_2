@@ -19,7 +19,7 @@
         <h4>Description</h4>
         <p>{{ product.description }}</p>
         {% for product_image in product.productimage_set.all %}
-            <img src="{{ product_image.image }}" class="product-img" />
+            <img src="{{ product_image.image }}" class="product-img img-fluid" />
         {% endfor %}
     </div>
 
