@@ -4,6 +4,13 @@ $(document).ready(function() {
         e.preventDefault();
         let addressValue = $(this).attr("id");
         add_item_to_cart(addressValue);
+        //remove_item_from_cart(addressValue, 1);
+    })
+    $(".btn-remove-from-cart").on("click", function(e)
+    {
+        e.preventDefault();
+        let addressValue = $(this).attr("id");
+        remove_item_from_cart(addressValue, 1);
     })
 });
 

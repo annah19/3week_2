@@ -110,7 +110,8 @@ def get_cart_items(session):
             "name": product.name,
             "amount": product_amount,
             "price": product_price,
-            "total": product_total_price
+            "total": product_total_price,
+            "id": product_id
         }
         cart_response.append(product_dict)
         cart_subtotal += product_total_price
