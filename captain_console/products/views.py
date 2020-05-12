@@ -7,14 +7,14 @@ def index(request):
     manufacturer = request.GET.get("manufacturer", "")
     category = request.GET.get("category", "")
     search = request.GET.get("search", "")
-    order_by = request.GET.get("order_by", "name"),
+    order_by = request.GET.get("order_by", "name")
 
     if search == "":
         games = Product.objects.filter(manufacturer__name__icontains=manufacturer, category__name__icontains=category)
     else:
         games = Product.objects.filter(name__icontains=search)
         add_to_search_history(request, search)
-
+    print(order_by)
     if order_by == "name" or order_by == "price":
         games = games.order_by(order_by)
     search_history = get_search_history(request)
