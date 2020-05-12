@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Profile</h1>
-    <form class="form form-horizontal" method="post">
+    <form id="profile-form" class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" class="btn btn-primary btn-theme btn-lg" value="Update"/>

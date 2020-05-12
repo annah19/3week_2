@@ -1,16 +1,13 @@
 
-<!-- TODO replace this id thing with something like a link to the cover image -->
 <a class="product-image" style="background-image: url('{{ product.cover_image }}')" href="/products/{{ product.id }}"></a>
 <div class="card">
     <div class="card-body text-center">
         <h4>{{ product.name }}</h4>
-        <!-- <p>{{ product.description }}</p> -->
         <div class="d-flex align-items-center">
             <div>${{ product.price }}</div>
             <div class="text-right ml-auto">
                 <button id="{{ product.id }}" type="button" class="btn btn-default btn-cart">Add to Cart</button>
             </div>
         </div>
-        <!-- <a href="{{ product.id }}" class="card-link btn-cart">Add to cart</a> -->
     </div>
 </div>

@@ -4,16 +4,13 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="jumbotron-darken"></div>
         <div class="container">
-            <h1 class="display-4">Promos</h1>
-            <p>Here can we put promos, or not..</p>
-                <!-- Todo link the button-->
-            <a href="#" class="btn btn-primary btn-theme  btn-lg" role="button">Check it out!</a>
-
+            <h1 class="display-4">Accessories extravaganza!</h1>
+            <p>We've got all the accessories you need</p>
+            <a href="/products/?manufacturer=&category=Accessories&order_by=name" class="btn btn-primary btn-theme  btn-lg" role="button">Check it out!</a>
         </div>
     </div>
-    <!-- Todo link the button-->
     <div class="text-center py-5">
-        <a href="#" class="btn btn-primary btn-theme btn-lg" role="button">Computers</a>
+        <a href="/products/?manufacturer=&category=Console&order_by=name" class="btn btn-primary btn-theme btn-lg" role="button">Computers</a>
     </div>
 
     <!--  check views.py also-->
@@ -24,11 +21,9 @@
             </div>
         {% endfor %}
     </div>
-    <!-- Todo link the button-->
     <div class="text-center py-5">
-        <a href="#" class="btn btn-primary btn-theme btn-lg" role="button">Games</a>
+        <a href="/products/?manufacturer=&category=Video+Game&order_by=name" class="btn btn-primary btn-theme btn-lg" role="button">Games</a>
     </div>
-
     <div class="row my-4">
         {% for game in games %}
             <div class="col-md-3">
