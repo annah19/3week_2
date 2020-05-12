@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>Shipping info!</h2>
-    <form class="form form-horizontal" method="post">
+    <form class="form form-horizontal" id="profile-form" method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" class="btn btn-primary" value="Go to Payment"/>
+        <input type="submit" class="btn btn- btn-theme btn-lg" value="Go to Payment"/>
     </form>
 {% endblock %}
