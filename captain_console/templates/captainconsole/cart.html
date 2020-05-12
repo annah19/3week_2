@@ -23,9 +23,9 @@
                             <td>{{ item.price }}</td>
                             <td>{{ item.amount }}</td>
                             <td>{{ item.total }}</td>
+                            <td><button id="{{ item.id }}" type="button" class="btn btn-default btn-remove-from-cart">Remove one from cart</button></td>
                         </tr>
                     </tbody>
-
                 {% endfor %}
             </table>
             <div class="text-right">
