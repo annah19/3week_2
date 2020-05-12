@@ -1,20 +1,37 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <h2>Your cart!</h2>
-    {% if not cart  %}
-        <h1>Your cart is empty!</h1>
-    {% else %}
-        {% for item in cart %}
-            <img src="{{ item.cover_art }}" class="cart-image" />
-            <h1>Name: {{ item.name }}</h1>
-            <p>Count: {{ item.amount }}</p>
-            <p>Price: {{ item.price }}</p>
-            <h2>Total: {{ item.total }}</h2>
-        {% endfor %}
-        <h1>Total Cart Price: {{ subtotal }}</h1>
-        <a href="{% url "checkout" %}" class="btn btn-primary btn-theme btn-lg" role="button">Go to checkout</a>
-    {% endif %}
+<!-- TODO Fix decimal numbers -->
+        {% if not cart  %}
+            <h1>Your cart is empty!</h1>
+        {% else %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total price</th>
+                    </tr>
+                </thead>
+                {% for item in cart %}
+                    <tbody>
+                        <tr>
+                            <th scope="row"><img src="{{ item.cover_art }}" class="cart-image" /></th>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.price }}</td>
+                            <td>{{ item.amount }}</td>
+                            <td>{{ item.total }}</td>
+                        </tr>
+                    </tbody>
 
+                {% endfor %}
+            </table>
+            <div class="text-right">
+                <h1>Total Cart Price: {{ subtotal }}</h1>
+                <a href="{% url "checkout" %}" class="btn btn-primary btn-theme btn-lg" role="button">Go to checkout</a>
+            </div>
+        {% endif %}
 {% endblock %}
 
