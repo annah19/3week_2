@@ -4,5 +4,6 @@
     <p>{{ shipping }}</p>
     <p>{{ card_info }}</p>
     <p>{{ cart }}</p>
+    <a class="btn btn-theme" role="button" href="{% url "payment_info" %}">Back</a>
     <a class="btn btn-theme" role="button" href="{% url "order_confirmation" %}">Confirm!</a>
 {% endblock %}
