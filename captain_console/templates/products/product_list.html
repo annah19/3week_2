@@ -24,6 +24,14 @@
                 </div>
                 <div class="card p-3">
                     <p class="font-weight-bold">Products</p>
+
+                    <div class="custom-control custom-radio my-1">
+                        <label>
+                            <input type="radio" {% if selected_category == "" %}checked{% endif %} class="custom-control-input" name="category" value="" onchange="this.form.submit()">
+                            <div class="custom-control-label"></div>
+                            All
+                        </label>
+                     </div>
                     {% for category in categories %}
                         <div class="custom-control custom-radio my-1">
                             <label>

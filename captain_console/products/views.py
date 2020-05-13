@@ -12,11 +12,16 @@ def index(request):
     search = request.GET.get("search", "")
     order_by = request.GET.get("order_by", "name")
 
-    if search == "":
-        games = Product.objects.filter(manufacturer__name=manufacturer, category__name__icontains=category)
-    else:
-        games = Product.objects.filter(name__icontains=search)
+    games = Product.objects
+
+    if manufacturer != "":
+        games = games.filter(manufacturer__name=manufacturer)
+    if category != "":
+        games = games.filter(category__name=category)
+    if search != "":
+        games = games.filter(name__icontains=search)
         add_to_search_history(request, search)
+
     print(order_by)
     if order_by == "name" or order_by == "price":
         games = games.order_by(order_by)

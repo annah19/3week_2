@@ -1,7 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Order submitted!</h2>
-    <p>{{ shipping }}</p>
-    <p>{{ card_info }}</p>
-    <p>{{ cart }}</p>
+    <h2 class="text-center">Order submitted!</h2>
+    <div class="border p-4">
+        <div class="row">
+            <div class="col-md-6">
+                <p>{{ shipping.name }}</p>
+                <p>{{ shipping.address }}</p>
+                <p>{{ shipping.city }}</p>
+                <p>{{ shipping.country }}</p>
+                <p>{{ shipping.postal_code }}</p>
+            </div>
+            <div class="col-md-6">
+                <p class="font-weight-bold">Payment type:</p>
+                <p>Credit card</p>
+            </div>
+        </div>
+        <div>
+            <div class="card">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total price</th>
+                        </tr>
+                    </thead>
+                    {% for item in cart.cart %}
+                        <tbody>
+                            <tr>
+                                <td>{{ item.name }}</td>
+                                <td>${{ item.price }}</td>
+                                <td>{{ item.amount }}</td>
+                                <td>${{ item.total }}</td>
+                            </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

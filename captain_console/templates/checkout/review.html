@@ -29,14 +29,28 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h3 class="text-center">Payment information!</h3>
+            <h3 class="text-center">Order information!</h3>
             <div class="card">
-        <!--TODO - find a way to iterate through list-->
-                <p>{{ cart.cart }}</p>
-                <p>{{ cart.name }}</p>
-                <p>{{ cart.amount }}</p>
-                <p>{{ cart }}</p>
-
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total price</th>
+                        </tr>
+                    </thead>
+                    {% for item in cart.cart %}
+                        <tbody>
+                            <tr>
+                                <td>{{ item.name }}</td>
+                                <td>${{ item.price }}</td>
+                                <td>{{ item.amount }}</td>
+                                <td>${{ item.total }}</td>
+                            </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
             </div>
         </div>
     </div>
