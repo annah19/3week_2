@@ -4,6 +4,7 @@
     <form class="form form-horizontal" id="profile-form" method="post">
         {% csrf_token %}
         {{ form }}
+        <a class="btn btn-theme" role="button" href="{% url "cart" %}">Back</a>
         <input type="submit" class="btn btn- btn-theme btn-lg" value="Go to Payment"/>
     </form>
 {% endblock %}

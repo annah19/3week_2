@@ -4,6 +4,7 @@
     <form class="form form-horizontal" id="profile-form" method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" class="btn btn-primary btn-theme btn-lg" value="Review Order"/>
+        <a class="btn btn-theme" role="button" href="{% url "checkout" %}">Back</a>
+        <input type="submit" class="btn btn-theme" value="Review Order"/>
     </form>
 {% endblock %}
