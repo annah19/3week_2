@@ -6,4 +6,9 @@
         {{ form }}
         <input type="submit" class="btn btn-primary btn-theme btn-lg" value="Update"/>
     </form>
+    {% if is_staff > 0 %}
+        <a href="{% url "create_item" %}"><input type="button" class="btn btn-primary" value="Add Product"></a>
+        <a href="{% url "create_manufacturer" %}"><input type="button" class="btn btn-primary" value="Add Manufacturer"></a>
+        <a href="{% url "create_category" %}"><input type="button" class="btn btn-primary" value="Add Category"></a>
+    {% endif %}
 {% endblock %}

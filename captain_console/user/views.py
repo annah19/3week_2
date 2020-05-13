@@ -33,6 +33,15 @@ def profile(request):
             profile.user = request.user
             profile.save()
             return redirect('profile')
+
     return render(request, 'user/profile.html', {
-        'form': ProfileForm(instance=profile)
+        'form': ProfileForm(instance=profile), 'is_staff': is_user_staff(request)
     })
+
+
+def is_user_staff(request):
+    profile_maybe = Profile.objects.filter(user=request.user).first()
+    if profile_maybe is None:
+        return 0
+    else:
+        return profile_maybe.role

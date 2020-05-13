@@ -8,7 +8,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_image = models.CharField(max_length=999, blank=True)
     email = models.CharField(max_length=255)
-    role = models.FloatField()
+    role = models.FloatField(default=0)
     name = models.CharField(max_length=255)
     address = models.CharField(max_length=999)
     city = models.CharField(max_length=999)

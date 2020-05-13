@@ -6,4 +6,5 @@ urlpatterns = [
     # http://localhost:8000/products
     path('', views.index, name="products-index"),
     path("<int:product_id>", views.get_product_by_id, name="product_details"),
+    path("<int:product_id>/update", views.update_product, name="update_product")
 ]
