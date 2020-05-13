@@ -1,8 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2>Review yo shizzle!</h2>
-    <p>{{ shipping }}</p>
-    <p>{{ card_info }}</p>
-    <p>{{ cart }}</p>
-    <a class="btn btn-theme" role="button" href="{% url "order_confirmation" %}">Confirm!</a>
+    <h2 class="text-center">Review your order!</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="text-center">Your information!</h3>
+            <div class="card">
+                <h5>Name: </h5>
+                <p>{{ shipping.name }}</p>
+                <h5>Address: </h5>
+                <p>{{ shipping.address }}</p>
+                <h5>City: </h5>
+                <p>{{ shipping.city }}</p>
+                <h5>Country:</h5>
+                <p>{{ shipping.country }}</p>
+                <h5>Zip: </h5>
+                <p>{{ shipping.postal_code }}</p>
+            </div>
+            <h3 class="text-center">Payment information!</h3>
+            <div class="card">
+                <h5>Cardholder name: </h5>
+                <p>{{ card_info.cardholder_name }}</p>
+                <h5>Card number: </h5>
+                <p>{{ card_info.card_number }}</p>
+                <h5>Expiry date: </h5>
+                <p>{{ card_info.expiry_date }}</p>
+                <h5>CVC: </h5>
+                <p>{{ card_info.cvc }}</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-center">Payment information!</h3>
+            <div class="card">
+        <!--TODO - find a way to iterate through list-->
+                <p>{{ cart.cart }}</p>
+                <p>{{ cart.name }}</p>
+                <p>{{ cart.amount }}</p>
+                <p>{{ cart }}</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="text-center py-5"><a class="btn btn-theme btn-lg" role="button" href="{% url "order_confirmation" %}">Confirm!</a></div>
 {% endblock %}

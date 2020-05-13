@@ -20,16 +20,16 @@
                         <tr>
                             <th scope="row"><img src="{{ item.cover_art }}" class="cart-image" /></th>
                             <td>{{ item.name }}</td>
-                            <td>{{ item.price }}</td>
+                            <td>${{ item.price }}</td>
                             <td>{{ item.amount }}</td>
-                            <td>{{ item.total }}</td>
+                            <td>${{ item.total }}</td>
                             <td><button id="{{ item.id }}" type="button" class="btn btn-default btn-remove-from-cart">Remove one from cart</button></td>
                         </tr>
                     </tbody>
                 {% endfor %}
             </table>
             <div class="text-right">
-                <h1>Total Cart Price: {{ subtotal }}</h1>
+                <h1>Total Cart Price: ${{ subtotal }}</h1>
                 <a href="{% url "checkout" %}" class="btn btn-primary btn-theme btn-lg" role="button">Go to checkout</a>
             </div>
         {% endif %}
