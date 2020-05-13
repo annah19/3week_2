@@ -43,4 +43,6 @@ def is_user_staff(request):
     if not request.user.is_authenticated:
         return 0
     profile_maybe = Profile.objects.filter(user=request.user).first()
+    if profile_maybe is None:
+        return 0
     return profile_maybe.role
