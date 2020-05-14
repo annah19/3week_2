@@ -99,7 +99,7 @@ def get_cart_items(session):
         return {"cart": [], "subtotal": 0}
     cart_items = session["cart"]
     cart_response = []
-    cart_subtotal = 0
+    cart_subtotal = float(0)
     for product_id in cart_items:
         product_amount = cart_items[product_id]
         product = Product.objects.get(pk=product_id)
@@ -115,4 +115,4 @@ def get_cart_items(session):
         }
         cart_response.append(product_dict)
         cart_subtotal += product_total_price
-    return {"cart": cart_response, "subtotal": cart_subtotal}
+    return {"cart": cart_response, "subtotal": round(cart_subtotal,2)}
