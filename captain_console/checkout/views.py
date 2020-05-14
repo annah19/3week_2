@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from datetime import datetime
 
 from CaptainConsole.views import get_cart_items
 from checkout.forms.shipping_info import ShippingForm, PaymentForm
@@ -32,10 +33,14 @@ def payment_info(request):
         form = PaymentForm(data=request.POST)
         if form.is_valid():
             clean_data = form.cleaned_data
+            clean_data["expiry_date"] = clean_data["expiry_date"].isoformat()
             request.session["card_info"] = clean_data
+
             return redirect("order_review")
     if "card_info" in request.session:
-        form = PaymentForm(request.session["card_info"])
+        card_data = dict(request.session["card_info"])
+        card_data["expiry_date"] = datetime.fromisoformat(card_data["expiry_date"])
+        form = PaymentForm(card_data)
     else:
         form = PaymentForm()
     request.session["checkout_state"] = 1

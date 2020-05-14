@@ -83,6 +83,7 @@ def create_manufacturer(request):
     return render(request, "products/create_manufacturer.html", {"form": form})
 
 
+@login_required
 def create_category(request):
     if request.method == "POST":
         form = CategoryCreationForm(data=request.POST)

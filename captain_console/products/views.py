@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -22,7 +23,6 @@ def index(request):
         games = games.filter(name__icontains=search)
         add_to_search_history(request, search)
 
-    print(order_by)
     if order_by == "name" or order_by == "price":
         games = games.order_by(order_by)
     search_history = get_search_history(request)
@@ -55,6 +55,7 @@ def get_search_history(request):
     return request.session["search_history"]
 
 
+@login_required
 def update_product(request, product_id):
     instance = get_object_or_404(Product, pk=product_id)
     if request.method == "POST":
