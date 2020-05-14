@@ -26,9 +26,8 @@ def index(request):
     if order_by == "name" or order_by == "price":
         games = games.order_by(order_by)
 
-    search_history = get_search_history(request)
-    if len(search_history) > 4:
-        search_history = search_history[-4:]
+    search_history = get_search_history(request)[-4:]
+
     return render(request, 'products/product_list.html', context={'products': games,
                                                                   'categories': ProductCategory.objects.all(),
                                                                   'manufacturers': ProductManufacturer.objects.all(),
