@@ -4,11 +4,23 @@
     <form id="profile-form" class="form form-horizontal" method="post">
         {% csrf_token %}
         {{ form }}
-        <input type="submit" class="btn btn-primary btn-theme btn-lg" value="Update"/>
+        <div class="m-3">
+            <input type="submit" class="btn btn-primary btn-theme btn-lg" value="Update"/>
+        </div>
     </form>
-    {% if is_staff > 0 %}
-        <a href="{% url "create_item" %}"><input type="button" class="btn btn-primary" value="Add Product"></a>
-        <a href="{% url "create_manufacturer" %}"><input type="button" class="btn btn-primary" value="Add Manufacturer"></a>
-        <a href="{% url "create_category" %}"><input type="button" class="btn btn-primary" value="Add Category"></a>
-    {% endif %}
+    <div>
+        <h3 class="mt-5">Admin:</h3>
+        {% if is_staff > 0 %}
+            <div class="mt-3">
+                <a href="{% url "create_item" %}"><input type="button" class="btn btn-primary btn-theme btn-lg p-" value="Add Product"></a>
+            </div>
+            <div class="mt-3">
+                <a href="{% url "create_manufacturer" %}"><input type="button" class="btn btn-primary btn-theme btn-lg" value="Add Manufacturer"></a>
+            </div>
+            <div class="mt-3">
+                <a href="{% url "create_category" %}"><input type="button" class="btn btn-primary btn-theme btn-lg" value="Add Category"></a>
+            </div>
+         {% endif %}
+    </div>
+
 {% endblock %}
