@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div>Previous Searches:
+        {% for search in search_history %}
+            <a href="{% url "products-index" %}?search={{ search }}">{{ search }}</a>
+        {% endfor %}
+    </div>
     <form method="GET">
         <div class="row">
             <div class="col-md-3">
