@@ -19,14 +19,14 @@
             <img src="{{ product_image.image }}" class="product-img img-fluid" />
         {% endfor %}
     </div>
-    <div>
-        <h3 class="mt-5">Admin:</h3>
-        <div class="mt-3">
-            {% if is_staff %}
-                <a href="{% url "update_product" product.id %}" class="block btn btn-primary btn-theme btn-lg">Update Product</a>
-            {% endif %}
-        </div>
+    {% if is_staff %}
+        <div>
+            <h3 class="mt-5">Admin:</h3>
+            <div class="mt-3">
+                    <a href="{% url "update_product" product.id %}" class="block btn btn-primary btn-theme btn-lg">Update Product</a>
+            </div>
 
-    </div>
+        </div>
+    {% endif %}
 
 {% endblock %}
